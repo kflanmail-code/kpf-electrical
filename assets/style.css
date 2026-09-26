@@ -11,6 +11,8 @@
    --volt-2     #6FC6FF  electric blue (bright, gradient top)
    --leaf       #2E9E45  renewable green (deep)
    --leaf-2     #8FE06B  renewable green (bright, gradient top)
+   --data       #6E56CF  data & comms violet (deep)
+   --data-2     #A78BFA  data & comms violet (bright, gradient top)
    --hazard     #F5B400  hazard amber, signature accent, used sparingly
    --line       rgba(11,14,17,0.12)
    ============================================================ */
@@ -34,6 +36,8 @@
   --volt-2:#6FC6FF;
   --leaf:#2E9E45;
   --leaf-2:#8FE06B;
+  --data:#6E56CF;
+  --data-2:#A78BFA;
   --hazard:#F5B400;
   --line:rgba(11,14,17,0.12);
   --line-dark:rgba(255,255,255,0.12);
@@ -230,7 +234,7 @@ section{ padding:88px 0; }
 .section-dark .section-head p{ color:var(--steel); }
 
 /* ---------- services grid ---------- */
-.svc-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:28px; }
+.svc-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:28px; }
 .svc-card{
   background:#fff; border:1px solid var(--line); border-radius:4px;
   padding:34px 30px; position:relative; overflow:hidden;
@@ -240,11 +244,13 @@ section{ padding:88px 0; }
 }
 .svc-card.elec::before{ background:linear-gradient(90deg,var(--volt),var(--volt-2)); }
 .svc-card.renew::before{ background:linear-gradient(90deg,var(--leaf),var(--leaf-2)); }
+.svc-card.data::before{ background:linear-gradient(90deg,var(--data),var(--data-2)); }
 .svc-card .tag{
   font-family:'IBM Plex Mono',monospace; font-size:11.5px; letter-spacing:.12em; text-transform:uppercase;
 }
 .svc-card.elec .tag{ color:var(--volt); }
 .svc-card.renew .tag{ color:var(--leaf); }
+.svc-card.data .tag{ color:var(--data); }
 .svc-card h3{ font-size:22px; margin:10px 0 12px; }
 .svc-card ul{ margin-top:16px; display:grid; gap:9px; }
 .svc-card ul li{
@@ -255,6 +261,7 @@ section{ padding:88px 0; }
 }
 .svc-card.elec ul li::before{ background:var(--volt-2); }
 .svc-card.renew ul li::before{ background:var(--leaf-2); }
+.svc-card.data ul li::before{ background:var(--data-2); }
 
 /* ---------- process / numbered (real sequence: enquiry -> quote -> job -> handover) ---------- */
 .process{ display:grid; grid-template-columns:repeat(4,1fr); gap:0; counter-reset:step; }
