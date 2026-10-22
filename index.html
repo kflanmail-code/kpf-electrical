@@ -197,16 +197,50 @@
 
 <section class="reviews">
   <div class="wrap">
-    <div class="review-band">
+    <div class="section-head">
+      <span class="eyebrow">Reviews</span>
+      <h2>Don't just take our word for it.</h2>
+      <p>Read what customers say about our work on Google.</p>
+    </div>
+
+    <!-- Rating and count are copied from the Google listing by hand: update them when new reviews come in. -->
+    <div class="rating-bar">
       <div>
-        <span class="eyebrow">Reviews</span>
-        <h2>Don't just take our word for it.</h2>
-        <p>Read what customers say about our work on Google.</p>
+        <span class="rating-label">Overall rating on Google</span>
+        <div class="rating-score"><strong>5.0</strong><span class="stars" role="img" aria-label="5 out of 5 stars">★★★★★</span><span class="rating-count">12 reviews</span></div>
       </div>
       <div class="hero-ctas">
-        <a href="https://maps.google.com/?cid=13044021711831501603" target="_blank" rel="noopener" class="btn btn-dark">Read our Google reviews</a>
-        <a href="https://g.page/r/CSMLMwCjrAW1EBM/review" target="_blank" rel="noopener" class="btn btn-outline">Leave a review</a>
+        <a href="https://maps.google.com/?cid=13044021711831501603" target="_blank" rel="noopener" class="btn btn-outline">Read all reviews</a>
+        <a href="https://g.page/r/CSMLMwCjrAW1EBM/review" target="_blank" rel="noopener" class="btn btn-dark">Write a review</a>
       </div>
+    </div>
+
+    <div class="review-carousel">
+      <button class="carousel-btn" data-dir="-1" aria-label="Previous reviews"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button>
+      <div class="review-track" tabindex="0" aria-label="Customer reviews">
+        <!-- Reviews copied from KPF's Google listing (picked by Kieran, 2026-10-22). One <article> per review. -->
+        <article class="review-card">
+          <div class="review-head"><span class="avatar" aria-hidden="true">M</span><div><strong>Maria H.</strong><span>Google review</span></div></div>
+          <span class="stars" role="img" aria-label="5 out of 5 stars">★★★★★</span>
+          <p>Keith was so professional to deal with. Arrived on time and completed the work to a very high standard and very happy with the results. Would highly recommend.</p>
+        </article>
+        <article class="review-card">
+          <div class="review-head"><span class="avatar green" aria-hidden="true">K</span><div><strong>Karen B.</strong><span>Google review</span></div></div>
+          <span class="stars" role="img" aria-label="5 out of 5 stars">★★★★★</span>
+          <p>Keith gives great advice. He&rsquo;s efficient reasonably priced and most important he will return promptly if any issues arise. A pleasure to deal with.</p>
+        </article>
+        <article class="review-card">
+          <div class="review-head"><span class="avatar" aria-hidden="true">N</span><div><strong>Nicola G.</strong><span>Google review</span></div></div>
+          <span class="stars" role="img" aria-label="5 out of 5 stars">★★★★★</span>
+          <p>Excellent service from KPF Electrical. Very professional, reliable and tidy work. Would highly recommend!</p>
+        </article>
+        <article class="review-card">
+          <div class="review-head"><span class="avatar green" aria-hidden="true">C</span><div><strong>Catherine L.</strong><span>Google review</span></div></div>
+          <span class="stars" role="img" aria-label="5 out of 5 stars">★★★★★</span>
+          <p>Very professional. No delay from contacting and installing. Highly recommended</p>
+        </article>
+      </div>
+      <button class="carousel-btn" data-dir="1" aria-label="Next reviews"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg></button>
     </div>
   </div>
 </section>
