@@ -162,19 +162,48 @@ ul{ margin:0; padding:0; list-style:none; }
 .menu-toggle{ display:none; background:none; border:0; color:#fff; padding:8px; cursor:pointer; }
 .menu-toggle svg{ width:28px; height:28px; }
 
-/* ---------- hero (navy livery panel) ---------- */
+/* ---------- topbar (phone + email on every page; hidden on phones, which get .mobile-cta) ---------- */
+.topbar{ background:var(--navy-deep); border-bottom:1px solid var(--navy-line); color:var(--muted-dark); font-size:13.5px; font-weight:600; }
+.topbar .wrap{
+  display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap;
+  padding-top:9px; padding-bottom:9px;
+}
+.topbar span, .topbar a{ display:inline-flex; align-items:center; gap:8px; }
+.topbar-links{ gap:26px; }
+.topbar a{ color:#fff; }
+.topbar a:hover{ color:var(--lime); }
+.topbar svg{ width:15px; height:15px; fill:none; stroke:var(--sky-text); stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
+
+/* ---------- hero: van photo faded into the navy behind the copy ---------- */
 .hero{
   background:var(--navy);
   color:#fff;
-  padding:40px 0 72px;
+  padding:0 0 48px;
+  overflow:hidden;
 }
-.hero .wrap{ display:grid; grid-template-columns:1.15fr .85fr; gap:48px; align-items:center; }
+.hero-main{ position:relative; padding:64px 0 72px; }
+.hero-bg{ position:absolute; top:0; right:0; bottom:0; width:64%; }
+.hero-bg img{ width:100%; height:100%; object-fit:cover; object-position:4% 62%; }
+.hero-bg::after{
+  content:""; position:absolute; inset:0;
+  background:
+    linear-gradient(90deg, var(--navy) 0%, rgba(46,56,80,.88) 16%, rgba(46,56,80,.35) 42%, rgba(46,56,80,0) 64%),
+    linear-gradient(0deg, var(--navy) 0%, rgba(46,56,80,0) 26%),
+    linear-gradient(180deg, rgba(46,56,80,.55) 0%, rgba(46,56,80,0) 20%);
+}
+.hero-main .wrap{ position:relative; z-index:1; }
+.hero-copy{ max-width:640px; text-shadow:0 1px 14px rgba(20,26,40,.45); }
 .hero h1{
-  font-size:clamp(2.1rem, 4vw, 3rem);
+  font-size:clamp(2.1rem, 4vw, 3.2rem);
   line-height:1.06;
   color:#fff;
 }
-.hero h1 .grad{ color:var(--lime); }
+/* the blue-to-green fade Keith asked to keep */
+.hero h1 .grad{
+  background:linear-gradient(95deg, var(--sky-text), var(--lime) 70%);
+  -webkit-background-clip:text; background-clip:text; color:transparent;
+  text-shadow:none;
+}
 .hero p.lead{
   color:var(--muted-dark);
   font-size:17px;
@@ -182,54 +211,29 @@ ul{ margin:0; padding:0; list-style:none; }
   margin:16px 0 30px;
 }
 .hero-ctas{ display:flex; gap:12px; flex-wrap:wrap; }
-.hero-trust{
-  display:flex; gap:26px; margin-top:40px; padding-top:26px;
-  border-top:1px solid var(--navy-line);
-  flex-wrap:wrap;
+
+/* full-width rule under the photo: trust points left, credential badges right */
+.hero-foot{
+  display:flex; align-items:center; justify-content:space-between; gap:28px; flex-wrap:wrap;
+  border-top:1px solid var(--navy-line); padding-top:30px;
 }
+.hero-trust{ display:flex; gap:26px; flex-wrap:wrap; }
 .hero-trust div{ font-size:11.5px; font-weight:600; color:var(--muted-dark); letter-spacing:.08em; text-transform:uppercase; }
 .hero-trust strong{ display:block; font-size:19px; font-weight:800; color:#fff; letter-spacing:0; text-transform:none; margin-bottom:2px; }
 
-.credential-row{ display:flex; gap:18px; align-items:center; margin-top:26px; flex-wrap:wrap; }
-.credential-row img{ height:64px; width:auto; border-radius:8px; }
-
-/* photo with the van's blue/green chevron down its left edge */
-.hero-photo{
-  position:relative; aspect-ratio:4/3; align-self:start; margin-top:40px;
-  border-radius:0 22px 22px 0; overflow:hidden;
-}
-.hero-photo::before, .hero-photo::after, .hero-photo img{
-  content:""; position:absolute; top:0; bottom:0; right:0;
-  clip-path:polygon(64px 0, 100% 0, 100% 100%, 64px 100%, 0 50%);
-}
-.hero-photo::before{ left:0; background:var(--sky); }
-.hero-photo::after{ left:12px; background:var(--lime); }
-.hero-photo img{
-  z-index:1; left:24px; width:calc(100% - 24px); height:100%;
-  object-fit:cover; object-position:25% 50%;
-}
-
-/* ---------- contact strip (the bottom band of the van panel) ---------- */
-.contact-strip{ background:var(--navy-deep); border-top:2px solid #3E4A66; color:#fff; }
-.contact-strip .wrap{
-  display:grid; grid-template-columns:1fr 1fr 1.4fr;
-  padding-top:16px; padding-bottom:16px;
-  font-weight:600; font-size:15.5px;
-}
-.contact-strip .wrap > *{ display:flex; align-items:center; justify-content:center; gap:12px; padding:2px 12px; }
-.contact-strip .wrap > * + *{ border-left:1px solid #3E4A66; }
-.contact-strip a:hover{ color:var(--lime); }
+.credential-row{ display:flex; gap:18px; align-items:center; flex-wrap:wrap; }
+.credential-row img{ height:96px; width:auto; border-radius:10px; }
 
 /* ---------- sections ---------- */
 section{ padding:88px 0; }
 .section-head{ max-width:660px; margin-bottom:44px; }
 .section-head h2{ font-size:clamp(1.8rem,2.8vw,2.5rem); margin-top:14px; }
-.section-head p{ color:var(--muted); font-size:16.5px; margin-top:12px; }
+/* intro paragraphs match body text (same size and colour), per Keith's consistency note */
+.section-head p{ color:var(--ink); font-size:16px; margin-top:12px; }
 
 .section-alt{ background:#fff; border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
 .section-dark{ background:var(--navy); color:#fff; }
 .section-dark .section-head p{ color:var(--muted-dark); }
-.section-dark + .section-dark{ padding-top:0; }
 
 /* ---------- services grid (navy livery cards) ---------- */
 .svc-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:22px; }
@@ -273,19 +277,6 @@ section{ padding:88px 0; }
 .process h4{ color:#fff; font-size:15.5px; letter-spacing:.06em; text-transform:uppercase; margin-bottom:6px; }
 .process p{ color:var(--muted-dark); font-size:14.5px; }
 
-/* ---------- trust / stats strip ---------- */
-.stat-strip{
-  display:grid; grid-template-columns:repeat(4,1fr);
-  border-top:1px solid var(--line); border-bottom:1px solid var(--line);
-}
-.stat-strip div{ padding:26px 24px; border-right:1px solid var(--line); }
-.stat-strip div:last-child{ border-right:none; }
-.stat-strip strong{ display:block; font-size:24px; font-weight:800; margin-bottom:4px; }
-.stat-strip span{ font-size:12px; font-weight:600; color:var(--muted); text-transform:uppercase; letter-spacing:.08em; }
-.section-dark .stat-strip, .section-dark .stat-strip div{ border-color:var(--navy-line); }
-.section-dark .stat-strip strong{ color:#fff; }
-.section-dark .stat-strip span{ color:var(--muted-dark); }
-
 /* ---------- reviews band (links out to the Google Business Profile) ---------- */
 section.reviews{ padding:72px 0; }
 .review-band{
@@ -294,7 +285,7 @@ section.reviews{ padding:72px 0; }
   display:flex; align-items:center; justify-content:space-between; gap:28px; flex-wrap:wrap;
 }
 .review-band h2{ font-size:clamp(1.5rem,2.4vw,2rem); margin:12px 0 8px; }
-.review-band p{ color:var(--muted); margin:0; }
+.review-band p{ margin:0; }
 
 /* ---------- CTA band (navy panel with the chevron) ---------- */
 .cta-band{
@@ -341,14 +332,15 @@ section.reviews{ padding:72px 0; }
 /* ---------- generic content blocks ---------- */
 .two-col{ display:grid; grid-template-columns:1fr 1fr; gap:56px; align-items:center; }
 .card{ background:#fff; border:1px solid var(--line); border-radius:var(--radius); padding:30px; }
+.card h3{ font-size:21px; margin-bottom:18px; }
 .badge-row{ display:flex; flex-wrap:wrap; gap:10px; margin-top:20px; }
 .badge{
   font-size:12px; font-weight:700; letter-spacing:.08em; text-transform:uppercase;
   background:var(--navy); color:#fff; padding:9px 14px; border-radius:999px;
 }
 .dot-list{ display:grid; gap:14px; }
-.dot-list li{ padding-left:22px; position:relative; font-size:15px; }
-.dot-list li::before{ content:""; position:absolute; left:0; top:7px; width:10px; height:10px; border-radius:50%; background:var(--sky); }
+.dot-list li{ padding-left:22px; position:relative; }
+.dot-list li::before{ content:""; position:absolute; left:0; top:8px; width:10px; height:10px; border-radius:50%; background:var(--sky); }
 .dot-list.green li::before{ background:var(--lime); }
 
 /* ---------- contact / form page ---------- */
@@ -371,31 +363,24 @@ iframe.enquiry-frame{ width:100%; height:1150px; border:0; display:block; }
 
 /* ---------- responsive ---------- */
 @media (max-width: 980px){
-  .hero .wrap{ grid-template-columns:1fr; }
   .svc-grid{ grid-template-columns:1fr; }
   .two-col{ grid-template-columns:1fr; }
   .contact-grid{ grid-template-columns:1fr; }
   .process{ grid-template-columns:1fr 1fr; }
-  .stat-strip{ grid-template-columns:1fr 1fr; }
-  .stat-strip div{ border-bottom:1px solid var(--line); }
   .footer-grid{ grid-template-columns:1fr 1fr; }
   .cta-band::before, .cta-band::after, .page-hero::before, .page-hero::after{ display:none; }
   .cta-band .btn-primary{ margin-right:0; }
 
-  /* stacked hero: headline, then the van photo, then the rest of the copy */
-  .hero .wrap{ gap:0; }
-  .hero-copy{ display:contents; }
-  .hero-copy > *{ order:3; }
-  .hero-copy > :first-child, .hero-copy > h1{ order:1; }
-  .hero-photo{ order:2; margin:8px 0 28px; max-width:640px; }
+  /* stacked hero: the photo becomes a full-width banner that fades down into the headline */
+  .hero-main{ padding:0 0 48px; }
+  .hero-bg{ position:relative; width:100%; height:auto; aspect-ratio:16 / 10; max-height:420px; }
+  .hero-bg img{ object-position:30% 60%; }
+  .hero-bg::after{ background:linear-gradient(0deg, var(--navy) 0%, rgba(46,56,80,0) 45%); }
+  .hero-main .wrap{ margin-top:-56px; }
+  .hero-copy{ max-width:none; }
 
   /* contact page: the quote button first */
   .contact-grid > .form-frame-wrap{ order:-1; }
-}
-@media (max-width: 860px){
-  .contact-strip .wrap{ grid-template-columns:1fr; gap:10px; }
-  .contact-strip .wrap > *{ justify-content:flex-start; padding:0; }
-  .contact-strip .wrap > * + *{ border-left:0; }
 }
 @media (max-width: 720px){
   html{ scroll-padding-top:72px; }
@@ -413,8 +398,12 @@ iframe.enquiry-frame{ width:100%; height:1150px; border:0; display:block; }
   section{ padding:56px 0; }
   section.reviews{ padding:48px 0; }
   .section-head{ margin-bottom:32px; }
-  .hero{ padding:20px 0 48px; }
-  .hero-trust{ display:grid; grid-template-columns:1fr 1fr; gap:18px 16px; margin-top:32px; padding-top:22px; }
+  .topbar{ display:none; }
+  .hero{ padding:0 0 40px; }
+  .hero-main .wrap{ margin-top:-40px; }
+  .hero-foot{ padding-top:24px; }
+  .hero-trust{ display:grid; grid-template-columns:1fr 1fr; gap:18px 16px; }
+  .credential-row img{ height:76px; }
   .page-hero{ padding:36px 0 44px; }
   .svc-card{ padding:26px 22px; }
   .review-band{ padding:28px 24px; }
@@ -427,10 +416,6 @@ iframe.enquiry-frame{ width:100%; height:1150px; border:0; display:block; }
   .nav-links.open{ display:flex; }
   .menu-toggle{ display:block; }
   .process{ grid-template-columns:1fr; }
-  /* two columns: only the left cell keeps its divider (widths only, so dark sections keep their line colour) */
-  .stat-strip div{ padding:18px 14px; border-right-width:0; }
-  .stat-strip div:nth-child(odd){ border-right-width:1px; }
-  .stat-strip strong{ font-size:19px; }
   .footer-grid{ grid-template-columns:1fr 1fr; gap:32px 20px; }
   .footer-grid > :first-child, .footer-grid > :last-child{ grid-column:1 / -1; }
   .cta-band{ padding:40px 28px; }
