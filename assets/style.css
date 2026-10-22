@@ -17,7 +17,9 @@
    --line        #E1E5EC  dividers on light
    ============================================================ */
 
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&display=swap');
+/* Self-hosted font (assets/fonts/) — avoids sending visitor IPs to Google's font CDN on every page load.
+   One variable file covers every weight used (500–800); latin subset includes Irish fadas. */
+@font-face{ font-family:'Montserrat'; font-style:normal; font-weight:500 800; font-display:swap; src:url('fonts/montserrat-latin-var.woff2') format('woff2'); }
 
 :root{
   --navy:#2E3850;
@@ -276,6 +278,16 @@ section{ padding:88px 0; }
 .section-dark .stat-strip, .section-dark .stat-strip div{ border-color:var(--navy-line); }
 .section-dark .stat-strip strong{ color:#fff; }
 .section-dark .stat-strip span{ color:var(--muted-dark); }
+
+/* ---------- reviews band (links out to the Google Business Profile) ---------- */
+section.reviews{ padding:72px 0; }
+.review-band{
+  background:#fff; border:1px solid var(--line); border-left:6px solid var(--lime);
+  border-radius:var(--radius); padding:36px 40px;
+  display:flex; align-items:center; justify-content:space-between; gap:28px; flex-wrap:wrap;
+}
+.review-band h2{ font-size:clamp(1.5rem,2.4vw,2rem); margin:12px 0 8px; }
+.review-band p{ color:var(--muted); margin:0; }
 
 /* ---------- CTA band (navy panel with the chevron) ---------- */
 .cta-band{
