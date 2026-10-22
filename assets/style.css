@@ -150,6 +150,8 @@ ul{ margin:0; padding:0; list-style:none; }
 .btn-ghost:hover{ border-color:#fff; }
 .btn-dark{ background:var(--navy); color:#fff; }
 .btn-dark:hover{ transform:translateY(-2px); }
+.btn-outline{ background:transparent; color:var(--navy); border-color:rgba(46,56,80,.35); }
+.btn-outline:hover{ border-color:var(--navy); }
 .btn-block{ width:100%; }
 
 .menu-toggle{ display:none; background:none; border:0; color:#fff; padding:8px; cursor:pointer; }
@@ -184,7 +186,7 @@ ul{ margin:0; padding:0; list-style:none; }
 .hero-trust strong{ display:block; font-size:19px; font-weight:800; color:#fff; letter-spacing:0; text-transform:none; margin-bottom:2px; }
 
 .credential-row{ display:flex; gap:18px; align-items:center; margin-top:26px; flex-wrap:wrap; }
-.credential-row img{ height:52px; width:auto; border-radius:8px; }
+.credential-row img{ height:64px; width:auto; border-radius:8px; }
 
 /* photo with the van's blue/green chevron down its left edge */
 .hero-photo{
