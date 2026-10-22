@@ -10,4 +10,16 @@ document.addEventListener('DOMContentLoaded', function () {
       a.addEventListener('click', function () { nav.classList.remove('open'); });
     });
   }
+
+  // review carousel arrows: slide one card width at a time
+  document.querySelectorAll('.review-carousel').forEach(function (carousel) {
+    var track = carousel.querySelector('.review-track');
+    carousel.querySelectorAll('.carousel-btn').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var card = track.querySelector('.review-card');
+        var step = card ? card.getBoundingClientRect().width + 20 : track.clientWidth;
+        track.scrollBy({ left: step * Number(btn.getAttribute('data-dir')) });
+      });
+    });
+  });
 });
