@@ -17,7 +17,9 @@
    --line        #E1E5EC  dividers on light
    ============================================================ */
 
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&display=swap');
+/* Self-hosted font (assets/fonts/) — avoids sending visitor IPs to Google's font CDN on every page load.
+   One variable file covers every weight used (500–800); latin subset includes Irish fadas. */
+@font-face{ font-family:'Montserrat'; font-style:normal; font-weight:500 800; font-display:swap; src:url('fonts/montserrat-latin-var.woff2') format('woff2'); }
 
 :root{
   --navy:#2E3850;
