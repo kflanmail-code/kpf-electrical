@@ -236,11 +236,14 @@ ul{ margin:0; padding:0; list-style:none; }
 .hero-trust strong{ display:block; font-size:19px; font-weight:800; color:#fff; letter-spacing:0; text-transform:none; margin-bottom:2px; }
 
 .credential-row{ display:flex; gap:18px; align-items:center; flex-wrap:wrap; }
-.credential-row img{ height:96px; width:auto; border-radius:10px; }
+.credential-row img{ height:120px; width:auto; border-radius:12px; }
 
 /* ---------- sections ---------- */
 section{ padding:88px 0; }
 .section-head{ max-width:660px; margin-bottom:44px; }
+/* About follows straight on from "What we do": a shorter gap between the two, and from heading to text */
+#about{ padding-top:24px; }
+#about .section-head{ margin-bottom:24px; }
 .section-head h2{ font-size:clamp(1.8rem,2.8vw,2.5rem); margin-top:14px; }
 /* intro paragraphs match body text (same size and colour), per Keith's consistency note */
 .section-head p{ color:var(--ink); font-size:16px; margin-top:12px; }
@@ -364,7 +367,7 @@ section.reviews{ padding:80px 0; }
 .footer-grid a{ font-size:14.5px; }
 .footer-grid a:hover{ color:var(--lime); }
 .footer-brand{ margin-bottom:16px; }
-.footer-brand img{ height:84px; width:auto; }
+.footer-brand img{ height:110px; width:auto; }
 .footer-bottom{ display:flex; justify-content:space-between; align-items:center; padding-top:24px; font-size:13px; flex-wrap:wrap; gap:12px; }
 
 /* ---------- page hero (subpages) ---------- */
@@ -382,7 +385,8 @@ section.reviews{ padding:80px 0; }
 .crumb a:hover{ color:var(--lime); }
 
 /* ---------- generic content blocks ---------- */
-.two-col{ display:grid; grid-template-columns:1fr 1fr; gap:56px; align-items:center; }
+/* top-aligned so the text and its side box start level (About, and each Services section) */
+.two-col{ display:grid; grid-template-columns:1fr 1fr; gap:56px; align-items:start; }
 .card{ background:#fff; border:1px solid var(--line); border-radius:var(--radius); padding:30px; }
 .card h3{ font-size:21px; margin-bottom:18px; }
 .badge-row{ display:flex; flex-wrap:wrap; gap:10px; margin-top:20px; }
@@ -458,7 +462,8 @@ iframe.enquiry-frame{ width:100%; height:1150px; border:0; display:block; }
   .hero-main .wrap{ margin-top:-40px; }
   .hero-foot{ padding-top:24px; }
   .hero-trust{ display:grid; grid-template-columns:1fr 1fr; gap:18px 16px; }
-  .credential-row img{ height:76px; }
+  .credential-row img{ height:88px; }
+  #about{ padding-top:8px; }
   .page-hero{ padding:36px 0 44px; }
   .svc-card{ padding:26px 22px; }
   .rating-bar{ padding:20px 22px; }
