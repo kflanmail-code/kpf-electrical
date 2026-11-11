@@ -173,6 +173,8 @@ ul{ margin:0; padding:0; list-style:none; }
 .topbar a{ color:#fff; }
 .topbar a:hover{ color:var(--lime); }
 .topbar svg{ width:15px; height:15px; fill:none; stroke:var(--sky-text); stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
+.topbar .topbar-social svg{ width:16px; height:16px; fill:#fff; stroke:none; }
+.topbar .topbar-social:hover svg{ fill:var(--lime); }
 
 /* ---------- hero: van photo faded into the navy behind the copy ---------- */
 .hero{
@@ -419,6 +421,16 @@ section.reviews{ padding:80px 0; }
 .footer-grid a{ font-size:14.5px; }
 .footer-grid a:hover{ color:var(--lime); }
 .footer-brand{ margin-bottom:16px; }
+/* social icons under the footer logo (Instagram goes here too once the account exists) */
+.social-row{ display:flex; gap:10px; }
+.social-btn{
+  width:40px; height:40px; border-radius:50%;
+  display:flex; align-items:center; justify-content:center;
+  background:rgba(255,255,255,.08); border:1px solid var(--navy-line);
+}
+.social-btn svg{ width:18px; height:18px; fill:#fff; }
+.social-btn:hover{ background:var(--lime); border-color:var(--lime); }
+.social-btn:hover svg{ fill:var(--navy); }
 .footer-brand img{ height:110px; width:auto; }
 .footer-bottom{ display:flex; justify-content:space-between; align-items:center; padding-top:24px; font-size:13px; flex-wrap:wrap; gap:12px; }
 
